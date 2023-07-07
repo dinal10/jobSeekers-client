@@ -1,14 +1,32 @@
 // import { login } from "../fetching/auth";
 import { useState } from "react";
 import image from "../../public/login-page.jpg";
+import Swal from "sweetalert2";
+import { useStore } from "../modules/store";
+import { useNavigate } from "react-router-dom";
+import { login } from "../fetching/auth";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const setuser = useStore((state) => state.setUser);
 
   async function handleLogin() {
-    console.log(email);
-    console.log(password);
+    try {
+      const { access_token, role } = await login({ email, password });
+      Swal.fire({
+        title: "Login Success",
+        icon: "success",
+      });
+      setuser({ email, password, access_token, role });
+      navigate("/");
+    } catch (error) {
+      Swal.fire({
+        title: "Login Fail",
+        icon: "error",
+      });
+    }
   }
 
   return (
