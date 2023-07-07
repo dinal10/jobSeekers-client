@@ -1,22 +1,15 @@
 // import { login } from "../fetching/auth";
-// import { useEffect, useState } from "react";
+import { useState } from "react";
 import image from "../../public/login-page.jpg";
 
 export default function Login() {
-  //   const [email, setEmail] = useState("");
-  //   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  //   async function handleLogin() {
-  //     const payload = {
-  //       email: "user@mail.com",
-  //       password: "user",
-  //     };
-  //     await login(payload);
-  //   }
-
-  //   useEffect(() => {
-  //     handleLogin();
-  //   }, []);
+  async function handleLogin() {
+    console.log(email);
+    console.log(password);
+  }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#001C30]">
@@ -27,6 +20,7 @@ export default function Login() {
           <div className="py-4">
             <span className="mb-2 text-md">Email</span>
             <input
+              onChange={(e) => setEmail(e.target.value)}
               type="text"
               className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
               name="email"
@@ -36,17 +30,21 @@ export default function Login() {
           <div className="py-4">
             <span className="mb-2 text-md">Password</span>
             <input
+              onChange={(e) => setPassword(e.target.value)}
               type="password"
               name="pass"
               id="pass"
               className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
             />
           </div>
-          <button className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300">
+          <button
+            onClick={() => handleLogin()}
+            className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300"
+          >
             Sign in
           </button>
           <div className="text-center text-gray-400">
-            Don't have an account?
+            Dont have an account?
             <span className="font-bold text-black">Sign up for free</span>
           </div>
         </div>
@@ -60,13 +58,7 @@ export default function Login() {
           {/* text on image */}
           <div className="absolute top-0 h-[45%]  p-6 bg-[#001C30] bg-opacity-25 rounded text-white md:block w-full">
             <h2 className="text-2xl font-bold mb-4">Visi - Misi bakat Lacak</h2>
-            <p className="text-xl">
-              Start every new project and can't imagine working without it.
-              Start every new project and can't imagine working without it.
-              Start every new project and can't imagine working without it.Start
-              every new project and can't imagine working without it.Start every
-              new project and can't imagine working without it.
-            </p>
+            <p className="text-xl"></p>
           </div>
         </div>
       </div>
