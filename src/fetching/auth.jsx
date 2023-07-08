@@ -15,3 +15,36 @@ export async function login(params) {
     console.log(err);
   }
 }
+
+export async function register(params) {
+  try {
+    const {
+      email,
+      password,
+      first_name,
+      last_name,
+      phone_number,
+      birth_dat,
+      gender,
+      role,
+    } = params;
+    const response = await instance({
+      url: "/auth/register",
+      method: "POST",
+      data: {
+        email,
+        password,
+        first_name,
+        last_name,
+        phone_number,
+        birth_dat,
+        gender,
+        role,
+      },
+    });
+    const data = response.data;
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+}

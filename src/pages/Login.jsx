@@ -10,7 +10,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const setuser = useStore((state) => state.setUser);
+  const setUser = useStore((state) => state.setUser);
 
   async function handleLogin() {
     try {
@@ -19,7 +19,7 @@ export default function Login() {
         title: "Login Success",
         icon: "success",
       });
-      setuser({ email, password, access_token, role });
+      setUser({ email, password, access_token, role });
       navigate("/");
     } catch (error) {
       Swal.fire({
@@ -31,10 +31,12 @@ export default function Login() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#001C30]">
-      <div className="relative flex flex-col md:flex-row bg-white rounded-2xl w-[90%] h-[800px]">
+      <div className="relative flex flex-col md:flex-row bg-[#DAFFFB] rounded-2xl w-[90%] h-[800px]">
         {/* left side */}
         <div className="flex flex-col justify-center p-8 md:w-[50%]">
-          <span className="mx-auto py-2 text-6xl font-bold">Login</span>
+          <span className="mx-auto py-2 text-6xl font-bold text-[#176B87]">
+            Login
+          </span>
           <div className="py-4">
             <span className="mb-2 text-md">Email</span>
             <input
@@ -57,13 +59,13 @@ export default function Login() {
           </div>
           <button
             onClick={() => handleLogin()}
-            className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300"
+            className="w-full bg-[#176B87] text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300"
           >
             Sign in
           </button>
           <div className="text-center text-gray-400">
             Dont have an account?
-            <span className="font-bold text-black">Sign up for free</span>
+            <span className="font-bold text-black"> Sign up for free</span>
           </div>
         </div>
         {/* right side */}

@@ -1,26 +1,47 @@
 import { useState } from "react";
 import image from "../../public/login-page.jpg";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { register } from "../fetching/auth";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phone, setPhone] = useState("");
+  const [birthDate, setBirthDate] = useState(null);
+  const [gender, setGender] = useState("");
   const [role, setRole] = useState("");
 
+  const navigate = useNavigate();
+
   const handleRegister = () => {
-    // Logika untuk melakukan registrasi pengguna
-    const payload = {
-      email,
-      password,
-      firstName,
-      lastName,
-      phoneNumber,
-      role,
-    };
-    console.log(payload);
-    // Lakukan pemanggilan fungsi register atau kirim data ke endpoint API
+    try {
+      register({
+        email,
+        password,
+        first_name: firstName,
+        last_name: lastName,
+        phone_number: phone,
+        birth_date: birthDate ? birthDate.toISOString().slice(0, 10) : null,
+        gender,
+        role,
+      });
+      Swal.fire({
+        title: "Register Success",
+        icon: "success",
+      });
+
+      navigate("/login");
+    } catch (error) {
+      Swal.fire({
+        title: "Register Fail",
+        icon: "error",
+      });
+    }
   };
 
   return (
@@ -28,8 +49,10 @@ export default function Register() {
       <div className="relative flex flex-col md:flex-row bg-white rounded-2xl w-[90%] h-[800px]">
         {/* left side */}
         <div className="flex flex-col justify-center p-8 md:w-[50%]">
-          <span className="mx-auto py-2 text-6xl font-bold">Register</span>
-          <div className="py-4">
+          <span className="mx-auto py-2 text-6xl text-[#176B87] font-bold">
+            Register
+          </span>
+          <div className="py-2">
             <span className="mb-2 text-md">Email</span>
             <input
               type="text"
@@ -40,7 +63,8 @@ export default function Register() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="py-4">
+
+          <div className="py-2">
             <span className="mb-2 text-md">Password</span>
             <input
               type="password"
@@ -51,52 +75,89 @@ export default function Register() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className="py-4">
+          <div className="py-2">
             <span className="mb-2 text-md">First Name</span>
             <input
-              type="text"
-              name="firstName"
-              id="firstName"
+              name="first name"
+              id="first name"
               className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
           </div>
-          <div className="py-4">
+
+          <div className="py-2">
             <span className="mb-2 text-md">Last Name</span>
             <input
-              type="text"
-              name="lastName"
-              id="lastName"
+              name="last name"
+              id="last name"
               className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>
-          <div className="py-4">
-            <span className="mb-2 text-md">Phone Number</span>
+
+          <div className="py-2">
+            <span className="mb-2 text-md">Phone number</span>
             <input
               type="text"
-              name="phoneNumber"
-              id="phoneNumber"
+              name="phone"
+              id="phone"
+              pattern="[0-9]{10}"
               className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             />
           </div>
-          <div className="py-4">
+
+          <div className="flex">
+            <div className="py-2">
+              <span className="mb-2 text-md">Birth Date</span>
+              <br />
+              <DatePicker
+                selected={birthDate}
+                type="date"
+                value={birthDate}
+                onChange={(date) => setBirthDate(date)}
+                dateFormat="yyyy-MM-dd"
+                className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
+              />
+            </div>
+
+            <div className="py-2 px-4">
+              <span className="mb-2 text-md">Gender</span>
+              <select
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
+              >
+                <option disabled value="" selected>
+                  Open this select Role
+                </option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="py-2">
             <span className="mb-2 text-md">Role</span>
-            <input
-              type="text"
-              name="role"
-              id="role"
-              className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
+            <select
               value={role}
               onChange={(e) => setRole(e.target.value)}
-            />
+              className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
+            >
+              <option disabled value="" selected>
+                Open this select Role
+              </option>
+              <option value="user">user</option>
+              <option value="recruiter">recruiter</option>
+              <option value="admin">admin</option>
+            </select>
           </div>
+
           <button
-            className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300"
+            className="w-full bg-[#176B87] text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300"
             onClick={handleRegister}
           >
             Register
