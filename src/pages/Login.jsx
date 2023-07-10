@@ -1,4 +1,3 @@
-// import { login } from "../fetching/auth";
 import { useState } from "react";
 import image from "../../public/login-page.jpg";
 import Swal from "sweetalert2";
