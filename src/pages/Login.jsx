@@ -1,5 +1,5 @@
 import { useState } from "react";
-import image from "../../public/login-page.jpg";
+import image from "../assets/login-page.jpg";
 import Swal from "sweetalert2";
 import { useStore } from "../modules/store";
 import { useNavigate } from "react-router-dom";
@@ -17,6 +17,8 @@ export default function Login() {
       Swal.fire({
         title: "Login Success",
         icon: "success",
+        showConfirmButton: false,
+        timer: 1500
       });
       setUser({ email, password, access_token, role });
       navigate("/");
@@ -24,6 +26,8 @@ export default function Login() {
       Swal.fire({
         title: "Login Fail",
         icon: "error",
+        showConfirmButton: false,
+        timer: 1500
       });
     }
   }

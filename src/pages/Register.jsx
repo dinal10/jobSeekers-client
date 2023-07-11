@@ -1,5 +1,5 @@
 import { useState } from "react";
-import image from "../../public/login-page.jpg";
+import image from "../assets/login-page.jpg";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { register } from "../fetching/auth";
@@ -33,6 +33,8 @@ export default function Register() {
       Swal.fire({
         title: "Register Success",
         icon: "success",
+        showConfirmButton: false,
+        timer: 1500
       });
 
       navigate("/login");
@@ -40,6 +42,8 @@ export default function Register() {
       Swal.fire({
         title: "Register Fail",
         icon: "error",
+        showConfirmButton: false,
+        timer: 1500
       });
     }
   };
