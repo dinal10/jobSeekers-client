@@ -290,27 +290,27 @@ export default function Home() {
             className="w-1/3 h-24 my-20 flex flex-col items-center"
             key={jobCard.id}
           >
-              <div className="w-9/12 group bg-gray-900 p-4 hover:shadow-xl rounded-xl">
+              <div className="w-9/12 group bg-black p-4 hover:shadow-xl rounded-xl">
                 <div className="flex items-center gap-x-2">
                   <img
                     className="aspect-[2/2] w-16"
                     src="https://idn-static-assets.s3-ap-southeast-1.amazonaws.com/school/10284.png"
                   />
                   <div>
-                    <h3 className="text-xl font-bold text-gray-50">
+                    <h3 className="text-xl font-bold text-white">
                       {jobCard.CompanyProfile.name}
                     </h3>
-                    <span className="text-xs text-gray-300">
+                    <span className="text-xs text-white">
                       {jobCard.location}
                     </span>
                   </div>
                 </div>
                 <div className="my-4">
-                  <h3 className="text-2xl font-medium text-gray-200">
+                  <h3 className="text-2xl font-medium text-white">
                     {jobCard.title}
                   </h3>
 
-                  <div className="mt-2 text-sm text-gray-400">
+                  <div className="mt-2 text-sm text-white">
                     {jobCard.salary_start} - {jobCard.salary_end}
                   </div>
                 </div>
