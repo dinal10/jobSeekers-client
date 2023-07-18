@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jobListing } from "../fetching/job_listing";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const [jobCard, setJobCard] = useState([]);
@@ -290,7 +291,7 @@ export default function Home() {
             className="w-1/3 h-24 my-20 flex flex-col items-center"
             key={jobCard.id}
           >
-              <div className="w-9/12 group bg-black p-4 hover:shadow-xl rounded-xl">
+              <div className="w-9/12 group bg-[#001C30] p-4 hover:shadow-xl rounded-xl">
                 <div className="flex items-center gap-x-2">
                   <img
                     className="aspect-[2/2] w-16"
@@ -319,6 +320,7 @@ export default function Home() {
         ))}
         
       </div>
+      <Footer/>
     </section>
   );
 }
