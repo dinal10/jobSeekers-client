@@ -69,9 +69,9 @@ function Navbar() {
               py={2}
               rounded="md"
               fontSize="sm"
-              onClick={() => navigate("/about")}
+              onClick={() => navigate("/job")}
             >
-              About
+              Job
             </Button>
             {isLoggedIn && (
               <Button
@@ -137,9 +137,9 @@ function Navbar() {
                 py={2}
                 rounded="md"
                 fontSize="sm"
-                onClick={() => navigate("/about")}
+                onClick={() => navigate("/job")}
               >
-                About
+                Job
               </Button>
               {isLoggedIn && (
                 <Button

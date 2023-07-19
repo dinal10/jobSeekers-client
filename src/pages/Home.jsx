@@ -36,14 +36,11 @@ export default function Home() {
             </h2>
 
             <p className="mt-4 text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut vero
-              aliquid sint distinctio iure ipsum cupiditate? Quis, odit
-              assumenda? Deleniti quasi inventore, libero reiciendis minima
-              aliquid tempora. Obcaecati, autem.
+            Initiate your journey towards your dream job by uncovering your talents through BakatLacak. Exceptional companies, esteemed and well-established, actively seek your presence, offering an integrated platform for your success.
             </p>
 
             <a
-              onClick={() => handleButton("/job-listing")}
+              onClick={() => handleButton("/job")}
               className="mt-8 inline-block rounded bg-[#001C30] px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
             >
               Get Started Today
@@ -53,7 +50,7 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
             <a
               className="block rounded-xl border border-[#176B87] p-4 shadow-md hover:border-[#001C30] hover:ring-1 hover:ring-blue-200 focus:outline-none focus:ring hover:shadow-[#001c3094] bg-white"
-              href="/accountant"
+              href="/job"
             >
               <span className="inline-block rounded-lg bg-[#001C30] text-white p-3">
                 <svg
@@ -277,7 +274,7 @@ export default function Home() {
       {/* Flow End */}
       <div className="flex justify-center">
       <button
-          onClick={() => handleButton("/job-listing")}
+          onClick={() => handleButton("/job")}
           className="mt-8 inline-block uppercase rounded-full bg-[#001C30] px-12 py-6 text-2xl text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
         >
           find your next job
@@ -320,7 +317,6 @@ export default function Home() {
         ))}
         
       </div>
-      <Footer/>
     </section>
   );
 }

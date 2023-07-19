@@ -7,6 +7,9 @@ import CompanyProfileUser from './pages/Companies/companyprofile';
 import Companydetail from './pages/Companies/companydetail';
 import CompanyCreate from './pages/Companies/Recruiter/companycreate';
 import CompanyEdit from './pages/Companies/Recruiter/companyedit';
+import JobListing from "./pages/JobListing";
+import JobDetail from "./pages/JobDetail";
+import Footer from "./components/Footer";
 import Navbar from './components/Navbar';
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme"
@@ -24,7 +27,10 @@ function App() {
         <Route path="/companydetail/:id" element={<Companydetail />} />
         <Route path="/companycreate" element={<CompanyCreate />} />
         <Route path="/companyedit/:id" element={<CompanyEdit />} />
+        <Route path="/job" element={<JobListing />} />
+        <Route path="/job/:id" element={<JobDetail />} />
       </Routes>
+      <Footer />
       </ChakraProvider>
     </Router>
     
