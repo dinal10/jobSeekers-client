@@ -15,10 +15,6 @@ export default {
       'mint': '#dafffb',
       'white': '#ffffff',
     },
-    fontFamily: {
-      sans: ['Roboto', 'sans-serif'],
-      serif: ['Georgia','serif'],
-    },
     extend: {
       spacing: {
         '128': '32rem',

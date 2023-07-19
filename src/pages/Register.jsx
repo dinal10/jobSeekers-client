@@ -1,5 +1,5 @@
 import { useState } from "react";
-import image from "../assets/login-page.jpg";
+import image from "../assets/login-page.jpg"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { register } from "../fetching/auth";

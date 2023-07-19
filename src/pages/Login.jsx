@@ -2,13 +2,13 @@ import { useState } from "react";
 import image from "../assets/login-page.jpg";
 import Swal from "sweetalert2";
 import { useStore } from "../modules/store";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { login } from "../fetching/auth";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const setUser = useStore((state) => state.setUser);
 
   async function handleLogin() {
@@ -17,11 +17,12 @@ export default function Login() {
       Swal.fire({
         title: "Login Success",
         icon: "success",
+        timer: 1500,
         showConfirmButton: false,
-        timer: 1500
       });
       setUser({ email, password, access_token, role });
-      navigate("/");
+      location.href = "/"
+      
     } catch (error) {
       Swal.fire({
         title: "Login Fail",
