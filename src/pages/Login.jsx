@@ -13,14 +13,14 @@ export default function Login() {
 
   async function handleLogin() {
     try {
-      const { access_token, role } = await login({ email, password });
+      const { id, access_token, role } = await login({ email, password });
       Swal.fire({
         title: "Login Success",
         icon: "success",
         timer: 1500,
         showConfirmButton: false,
       });
-      setUser({ email, password, access_token, role });
+      setUser({ id, email, password, access_token, role });
       location.href = "/"
       
     } catch (error) {
