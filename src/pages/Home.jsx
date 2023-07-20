@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jobListing } from "../fetching/job_listing";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 export default function Home() {
   const [jobCard, setJobCard] = useState([]);
@@ -16,7 +16,7 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const data = await jobListing();
-        setJobCard(data.slice(0, 6));
+        setJobCard(data.job_listing.slice(0, 6));
       } catch (error) {
         console.log(error);
       }
@@ -36,7 +36,10 @@ export default function Home() {
             </h2>
 
             <p className="mt-4 text-gray-600">
-            Initiate your journey towards your dream job by uncovering your talents through BakatLacak. Exceptional companies, esteemed and well-established, actively seek your presence, offering an integrated platform for your success.
+              Initiate your journey towards your dream job by uncovering your
+              talents through BakatLacak. Exceptional companies, esteemed and
+              well-established, actively seek your presence, offering an
+              integrated platform for your success.
             </p>
 
             <a
@@ -272,14 +275,15 @@ export default function Home() {
         </div>
       </div>
       {/* Flow End */}
+
       <div className="flex justify-center">
-      <button
+        <button
           onClick={() => handleButton("/job")}
           className="mt-8 inline-block uppercase rounded-full bg-[#001C30] px-12 py-6 text-2xl text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
         >
           find your next job
         </button>
-        </div>
+      </div>
 
       {/* Job Overview */}
       <div className="py-20 flex flex-wrap flex-row justify-center">
@@ -288,34 +292,31 @@ export default function Home() {
             className="w-1/3 h-24 my-20 flex flex-col items-center"
             key={jobCard.id}
           >
-              <div className="w-9/12 group bg-[#001C30] p-4 hover:shadow-xl rounded-xl">
-                <div className="flex items-center gap-x-2">
-                  <img
-                    className="aspect-[2/2] w-16"
-                    src="https://idn-static-assets.s3-ap-southeast-1.amazonaws.com/school/10284.png"
-                  />
-                  <div>
-                    <h3 className="text-xl font-bold text-white">
-                      {jobCard.CompanyProfile.name}
-                    </h3>
-                    <span className="text-xs text-white">
-                      {jobCard.location}
-                    </span>
-                  </div>
-                </div>
-                <div className="my-4">
-                  <h3 className="text-2xl font-medium text-white">
-                    {jobCard.title}
+            <div className="w-9/12 group bg-[#001C30] p-4 hover:shadow-xl rounded-xl">
+              <div className="flex items-center gap-x-2">
+                <img
+                  className="aspect-[2/2] w-16"
+                  src="https://idn-static-assets.s3-ap-southeast-1.amazonaws.com/school/10284.png"
+                />
+                <div>
+                  <h3 className="text-xl font-bold text-white">
+                    {jobCard.CompanyProfile.name}
                   </h3>
-
-                  <div className="mt-2 text-sm text-white">
-                    {jobCard.salary_start} - {jobCard.salary_end}
-                  </div>
+                  <span className="text-xs text-white">{jobCard.location}</span>
                 </div>
               </div>
+              <div className="my-4">
+                <h3 className="text-2xl font-medium text-white">
+                  {jobCard.title}
+                </h3>
+
+                <div className="mt-2 text-sm text-white">
+                  {jobCard.salary_start} - {jobCard.salary_end}
+                </div>
+              </div>
+            </div>
           </div>
         ))}
-        
       </div>
     </section>
   );
