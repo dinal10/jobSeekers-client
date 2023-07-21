@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 import { useStore } from "../../modules/store";
+import Loading from "../../components/Loading";
 
 function CompanyProfileUser() {
   const [companyProfiles, setCompanyProfiles] = useState([]);
@@ -36,14 +37,13 @@ function CompanyProfileUser() {
 
   if (isLoading) {
     return (
-      <Box h="100vh" display="flex" alignItems="center" justifyContent="center">
-        <Spinner size="4xl" color="black" />
-      </Box>
+      <Loading />
     );
   }
 
   return (
-      <Box pb={8} maxWidth="1000px" margin="0 auto" mt={5}>
+    <div className="bg-mint">
+      <Box pb={8} maxWidth="1000px" margin="0 auto" pt={5}>
         <h1 className="text-4xl text-center font-semibold text-black my-4">
         Companies
       </h1>
@@ -60,7 +60,7 @@ function CompanyProfileUser() {
             Create New
           </Button>
         )}
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={3} pb={200} pt={10}>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={3} pb={100} pt={10}>
           {companyProfiles.length > 0 ? (
             companyProfiles.map((profile) => (
               <Box
@@ -106,6 +106,7 @@ function CompanyProfileUser() {
           )}
         </SimpleGrid>
       </Box>
+      </div>
   );
 }
 

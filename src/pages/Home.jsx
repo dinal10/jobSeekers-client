@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <section className="bg-white ">
       {/* Heading */}
-      <div className="bg-white max-w-screen px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 w-full h-[40%] shadow-md flex justify-center items-center flex-row">
+      <div className="bg-mint max-w-screen px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 w-full h-[40%] shadow-md flex justify-center items-center flex-row">
         <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:items-center lg:gap-x-16 min-h-[500px]">
           <div className="mx-auto max-w-2lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
             <h2 className="text-3xl font-bold sm:text-7xl text-[#001C30]">
@@ -213,7 +213,7 @@ export default function Home() {
       {/* Heading End */}
 
       {/* Flow */}
-      <div className="min-h-screen w-full flex flex-col justify-center items-center mb-2 bg-black">
+      <div className="min-h-screen w-full flex flex-col justify-center items-center py-10 bg-black">
         <h1 className="text-3xl font-bold sm:text-4xl text-white mb-[50px]">
           How exactly you apply for the job
         </h1>
@@ -285,10 +285,10 @@ export default function Home() {
       {/* Flow End */}
 
       {/* Job Overview */}
-      <h1 className="flex justify-center text-3xl font-bold sm:text-4xl text-black pt-10 pb-4">
+      <h1 className="bg-mint flex justify-center text-3xl font-bold sm:text-4xl text-black pt-10 pb-4">
           Available Jobs
       </h1>
-      <div className="pb-20 pt-10 flex flex-wrap flex-row justify-center shadow-md">
+      <div className="bg-mint pb-20 pt-10 flex flex-wrap flex-row justify-center shadow-md">
         
         {jobCard.map((jobCard) => (
           <div

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { deleteExperience, editExperience } from "../fetching/userProfile";
+import { deleteExperience, editExperience } from "../fetching/experience";
 import Swal from "sweetalert2";
 import {
     Button,
@@ -15,7 +15,7 @@ import {
     Input
   } from "@chakra-ui/react";
 
-export default function TableExperience({experience}) {
+export default function TableExperience({experience, fetchProfile}) {
   const [company, setCompany] = useState(experience.company)
   const [city, setCity] = useState(experience.city)
   const [department, setDepartment] = useState(experience.department)
@@ -45,6 +45,7 @@ export default function TableExperience({experience}) {
       showConfirmButton: false,
       timer: 1500
     });
+    fetchProfile()
   }
 
   const handleEducationDelete = async () => {
@@ -56,21 +57,21 @@ export default function TableExperience({experience}) {
       confirmButtonColor: '#7F8389',
       cancelButtonColor: '#007D9C',
       confirmButtonText: 'Delete!'
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        const data = deleteExperience({
+        const data = await deleteExperience({
       id: experience.id
     })
     console.log(data)
         Swal.fire(
-          'Done!',
-          'Experience has been deleted.',
-          'success',
           {
-            timer: 3000
+            icon: 'success',
+            title: 'Experience deleted!',
+            showConfirmButton: false,
+            timer: 1500
           }
         )
-        window.location.reload()
+        fetchProfile()
       }
       
     })
@@ -79,7 +80,7 @@ export default function TableExperience({experience}) {
 
 
     return (
-        <Box className="pr-20 pt-10 w-full">
+        <Box className="pr-20 pt-5 pb-20 w-full">
           <TableContainer className="border-2 border-solid" alt="Education">
             <Table size='sm'>
               <TableCaption>

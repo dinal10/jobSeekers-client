@@ -16,7 +16,7 @@ import { FaFileLines } from "react-icons/fa6"
 
 export default function TableResume({ profile }) {
   return (
-    <Box className="pr-20 pt-10 w-full">
+    <Box className="pr-20 pt-5 pb-20 w-full">
       <TableContainer className="border-2 border-solid" alt="basic info">
         <Table size='sm'>
           <TableCaption>

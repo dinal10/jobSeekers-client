@@ -47,7 +47,7 @@ function JobListing() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await jobListing();
+        const data = await jobListing({limit: 12});
         const dataTypes = await findTypes();
         const dataSkills = await findSkills();
         const dataCompany = await getAllCompanyProfile();
@@ -101,6 +101,7 @@ function JobListing() {
 
   const refetchData = async (params) => {
     try {
+      params.limit = 12
       const data = await jobListing(params);
       setJobList(data);
     } catch (err) {
@@ -204,9 +205,9 @@ function JobListing() {
   };
 
   return (
-    <>
+    <div className="bg-mint pb-20">
       {/* Header */}
-      <h1 className="text-4xl text-center font-semibold text-black my-4">
+      <h1 className="text-4xl text-center font-semibold text-black mb-4">
         Jobs
       </h1>
       <div className="flex justify-center shadow-sm py-1">
@@ -354,7 +355,7 @@ function JobListing() {
       </div>
 
       <InitPagination />
-    </>
+    </div>
   );
 }
 

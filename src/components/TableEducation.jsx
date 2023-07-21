@@ -1,4 +1,4 @@
-import { deleteEducation, editEducation } from "../fetching/userProfile";
+import { deleteEducation, editEducation } from "../fetching/education";
 import { useState, React } from "react";
 import Swal from "sweetalert2";
 import {
@@ -15,7 +15,7 @@ import {
     Input
   } from "@chakra-ui/react";
 
-  export default function TableEducation({education}) {
+  export default function TableEducation({education, fetchProfile}) {
     const [schoolName, setSchoolName] = useState(education.Education.school_name)
     const [major, setMajor] = useState(education.major)
     const [degree, setDegree] = useState(education.Degree)
@@ -37,6 +37,7 @@ import {
         showConfirmButton: false,
         timer: 1500
       });
+      fetchProfile()
     }
     const handleEducationDelete = async () => {
       Swal.fire({
@@ -47,21 +48,21 @@ import {
         confirmButtonColor: '#7F8389',
         cancelButtonColor: '#007D9C',
         confirmButtonText: 'Delete!'
-      }).then((result) => {
+      }).then(async (result) => {
         if (result.isConfirmed) {
-          const data = deleteEducation({
+          const data = await deleteEducation({
         id: education.Education.id
       })
       console.log(data)
           Swal.fire(
-            'Done!',
-            'Education has been deleted.',
-            'success',
             {
-              timer: 3000
+              icon: 'success',
+              title: 'Education deleted!',
+              showConfirmButton: false,
+              timer: 1500
             }
           )
-          window.location.reload()
+          fetchProfile()
         }
         
       })
@@ -70,7 +71,7 @@ import {
     
 
     return (
-        <Box className="pr-20 pt-10 w-full">
+        <Box className="pr-20 pt-5 pb-20 w-full">
             <TableContainer className="border-2 border-solid" alt="Education">
               <Table size='sm'>
                 <TableCaption>

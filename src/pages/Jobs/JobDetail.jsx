@@ -39,7 +39,7 @@ export default function JobDetail() {
   return (
     <div className="flex justify-center pb-60">
       <div className="min-w-[80%]">
-        <div className="w-full">
+        <div>
           {/* Header */}
           <div className="mt-[40px]">
             <h2 className="font-normal">{jobDetail.CompanyProfile?.name}</h2>

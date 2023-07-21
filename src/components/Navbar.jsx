@@ -56,8 +56,8 @@ function Navbar() {
 
   return (
 
-      <Box bg="white">
-        <Flex maxW="7xl" px={4} align="center" h={16}>
+      <Box className="bg-mint">
+        <Flex maxW="full" px={4} align="center" h={16}>
           <Box>
             <a href="/">
               <Image src={logo} alt="LOGO" h={6} mb={1} mr={2}/>
