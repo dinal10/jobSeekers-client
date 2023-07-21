@@ -2,4 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.filter-bar {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .invisible {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  

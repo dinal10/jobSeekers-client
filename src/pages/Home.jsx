@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jobListing } from "../fetching/job_listing";
-// import Footer from "../components/Footer";
 
 export default function Home() {
   const [jobCard, setJobCard] = useState([]);
@@ -26,9 +25,9 @@ export default function Home() {
   }, []);
 
   return (
-    <section className="bg-[#DAFFFB] ">
+    <section className="bg-white ">
       {/* Heading */}
-      <div className="max-w-screen px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 w-full h-screen flex justify-center items-center flex-row">
+      <div className="bg-white max-w-screen px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 w-full h-[40%] shadow-md flex justify-center items-center flex-row">
         <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:items-center lg:gap-x-16 min-h-[500px]">
           <div className="mx-auto max-w-2lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
             <h2 className="text-3xl font-bold sm:text-7xl text-[#001C30]">
@@ -42,12 +41,12 @@ export default function Home() {
               integrated platform for your success.
             </p>
 
-            <a
+            <button
               onClick={() => handleButton("/job")}
               className="mt-8 inline-block rounded bg-[#001C30] px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
             >
               Get Started Today
-            </a>
+            </button>
           </div>
 
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
@@ -214,14 +213,14 @@ export default function Home() {
       {/* Heading End */}
 
       {/* Flow */}
-      <div className="min-h-screen w-full flex flex-col justify-center items-center">
-        <h1 className="text-3xl font-bold sm:text-4xl text-[#001C30] mb-[50px]">
+      <div className="min-h-screen w-full flex flex-col justify-center items-center mb-2 bg-black">
+        <h1 className="text-3xl font-bold sm:text-4xl text-white mb-[50px]">
           How exactly you apply for the job
         </h1>
         <div className="flex gap-10 flex-col lg:flex-row">
           <div className="flex flex-col p-5 justify-center items-center rounded-md border border-[#176B87]  shadow-md hover:border-[#001C30] hover:ring-1 hover:ring-blue-200 focus:outline-none focus:ring hover:shadow-[#001c3094] bg-white ">
             <svg
-              className="h-[300px] w-[300px]"
+              className="h-[100px] w-[100px]"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
               id="resume"
@@ -240,7 +239,7 @@ export default function Home() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="h-[300px] w-[300px]"
+              className="h-[100px] w-[100px]"
             >
               <path
                 strokeLinecap="round"
@@ -250,7 +249,7 @@ export default function Home() {
             </svg>
 
             <h2 className="font-bold py-2 text-2xl ">
-              2. Wait HR Analyize Your CV
+              2. Wait for response
             </h2>
           </div>
 
@@ -261,7 +260,7 @@ export default function Home() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="h-[300px] w-[300px]"
+              className="h-[100px] w-[100px]"
             >
               <path
                 strokeLinecap="round"
@@ -273,26 +272,30 @@ export default function Home() {
             <h2 className="font-bold py-2 text-2xl ">3. Get Accepted</h2>
           </div>
         </div>
-      </div>
-      {/* Flow End */}
-
-      <div className="flex justify-center">
+        <div className="flex justify-center">
         <button
           onClick={() => handleButton("/job")}
-          className="mt-8 inline-block uppercase rounded-full bg-[#001C30] px-12 py-6 text-2xl text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
+          className="mt-20 inline-block uppercase rounded-full bg-white px-8 py-4 text-xl text-black transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
         >
           find your next job
         </button>
       </div>
 
+      </div>
+      {/* Flow End */}
+
       {/* Job Overview */}
-      <div className="py-20 flex flex-wrap flex-row justify-center">
+      <h1 className="flex justify-center text-3xl font-bold sm:text-4xl text-black pt-10 pb-4">
+          Available Jobs
+      </h1>
+      <div className="pb-20 pt-10 flex flex-wrap flex-row justify-center shadow-md">
+        
         {jobCard.map((jobCard) => (
           <div
-            className="w-1/3 h-24 my-20 flex flex-col items-center"
+            className="w-[30%] h-[60%] my-4 flex flex-col items-center job-card"
             key={jobCard.id}
           >
-            <div className="w-9/12 group bg-[#001C30] p-4 hover:shadow-xl rounded-xl">
+            <div className="w-[90%] group bg-black p-4 rounded-xl">
               <div className="flex items-center gap-x-2">
                 <img
                   className="aspect-[2/2] w-16"
@@ -317,6 +320,12 @@ export default function Home() {
             </div>
           </div>
         ))}
+        <button
+          onClick={() => handleButton("/job")}
+          className="outline mt-10 inline-block uppercase rounded-full bg-black px-8 py-4 text-xl text-white border-solid-white transition hover:bg-white hover:text-black hover:outline-black"
+        >
+          more jobs
+        </button>
       </div>
     </section>
   );

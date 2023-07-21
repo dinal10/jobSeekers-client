@@ -71,20 +71,18 @@ export async function getSkills() {
 }
 
 export async function deleteSkill(param) {
-  try{
-    const {id} = param
+  try {
+    const { id } = param;
     const response = await instance({
       method: "DELETE",
       url: `/skills/delete`,
       data: {
-        id
-      }
-    })
-
-  } catch(err) {
-    console.log(err)
+        id,
+      },
+    });
+  } catch (err) {
+    console.log(err);
   }
-
 }
 
 export async function editUser(params) {
@@ -136,19 +134,18 @@ export async function editEducation(params) {
 }
 
 export async function deleteEducation(params) {
-    try {
-        const { id } = params
-        const response = await instance({
-            method: "DELETE",
-            url: `/educations/it`,
-            data: {
-              id
-            }
-        })
-
-    } catch(err) {
-        console.log(err)
-    }
+  try {
+    const { id } = params;
+    const response = await instance({
+      method: "DELETE",
+      url: `/educations/it`,
+      data: {
+        id,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export async function editExperience(params) {
@@ -184,7 +181,7 @@ export async function editExperience(params) {
         state,
         city,
       },
-    })
+    });
     console.log(response);
   } catch (err) {
     console.log(err);
@@ -193,15 +190,15 @@ export async function editExperience(params) {
 
 export async function deleteExperience(param) {
   try {
-    const { id } = param
+    const { id } = param;
     const response = await instance({
       method: "DELETE",
       url: `/experiences/delete`,
       data: {
-        id
-      }
-    })
-  } catch(err) {
-    console.log(err)
+        id,
+      },
+    });
+  } catch (err) {
+    console.log(err);
   }
 }

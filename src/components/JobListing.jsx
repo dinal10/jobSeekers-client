@@ -18,7 +18,7 @@ class JobListing extends Component {
     const { jobListings } = this.state;
     return (
       <>
-        <h4 className="text-3xl text-center fonat-semibold text-blueGray-700">
+        <h4 className="text-3xl text-center fonat-semibold text-blue">
           Job Listing
         </h4>
 

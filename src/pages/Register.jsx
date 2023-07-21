@@ -49,11 +49,11 @@ export default function Register() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#001C30]">
-      <div className="relative flex flex-col md:flex-row bg-white rounded-2xl w-[90%] h-[800px]">
-        {/* left side */}
-        <div className="flex flex-col justify-center p-8 md:w-[50%]">
-          <span className="mx-auto py-2 text-6xl text-[#176B87] font-bold">
+    <div className="flex items-center justify-center min-h-screen bg-black">
+      <div className="flex flex-col md:flex-row bg-white w-[70%] h-[800px]">
+        {/* Left side - Card Container */}
+        <div className="flex flex-col w-[50%] h-[50%] p-8">
+          <span className="mx-auto py-2 text-6xl text-black font-bold">
             Register
           </span>
           <div className="py-2">
@@ -136,7 +136,7 @@ export default function Register() {
                 className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
               >
                 <option disabled value="" selected>
-                  Open this select Role
+                Your gender
                 </option>
                 <option value="male">male</option>
                 <option value="female">female</option>
@@ -152,16 +152,16 @@ export default function Register() {
               className="w-full p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500"
             >
               <option disabled value="" selected>
-                Open this select Role
+              Choose your role
               </option>
-              <option value="user">user</option>
-              <option value="recruiter">recruiter</option>
-              <option value="admin">admin</option>
+              <option value="user">I am an applicant</option>
+              <option value="recruiter">I am a recruiter</option>
+              <option value="admin">I am an admin</option>
             </select>
           </div>
 
           <button
-            className="w-full bg-[#176B87] text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300"
+            className="w-full bg-[#176B87] text-white p-2 rounded-lg mb-6 hover:bg-black hover:text-white hover:border hover:border-gray-300"
             onClick={handleRegister}
           >
             Register
@@ -171,26 +171,27 @@ export default function Register() {
             <span className="font-bold text-black">Sign in</span>
           </div>
         </div>
-        {/* right side */}
+        {/* Right side - Image */}
         <div className="relative md:w-[50%] hidden md:block">
           <img
             src={image}
             alt="img"
-            className="w-full h-full rounded-r-2xl object-cover"
+            className="w-full h-[100%] object-cover"
           />
           {/* text on image */}
-          <div className="absolute top-0 h-[45%] p-6 bg-[#001C30] bg-opacity-25 rounded text-white md:block w-full">
-            <h2 className="text-2xl font-bold mb-4">Visi - Misi bakat Lacak</h2>
-            <p className="text-xl">
-              Start every new project and cant imagine working without it. Start
-              every new project and cant imagine working without it. Start every
-              new project and cant imagine working without it.Start every new
-              project and cant imagine working without it.Start every new
-              project and cant imagine working without it.
-            </p>
+          <div className="absolute top-0 h-[100%] p-6 bg-[#001C30] bg-opacity-25 text-white md:block w-full">
+
+            <h1 className="text-6xl text-bold">
+              We connect you to your desired company.
+              </h1>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+
+
+
+

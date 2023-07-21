@@ -15,7 +15,7 @@ import { useStore } from "../../modules/store";
 
 function CompanyProfileUser() {
   const [companyProfiles, setCompanyProfiles] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Set initial loading state to true
+  const [isLoading, setIsLoading] = useState(true); 
   const navigate = useNavigate();
   const user = useStore((state) => state.user);
 
@@ -27,10 +27,10 @@ function CompanyProfileUser() {
     try {
       const data = await getAllCompanyProfile();
       setCompanyProfiles(data);
-      setIsLoading(false); // Set loading state to false when data is fetched
+      setIsLoading(false); 
     } catch (err) {
       console.error("Error fetching company data:", err);
-      setIsLoading(false); // Set loading state to false in case of an error
+      setIsLoading(false);
     }
   };
 
@@ -44,6 +44,9 @@ function CompanyProfileUser() {
 
   return (
       <Box pb={8} maxWidth="1000px" margin="0 auto" mt={5}>
+        <h1 className="text-4xl text-center font-semibold text-black my-4">
+        Companies
+      </h1>
         {["recruiter", "admin"].includes(user.role) && ( // conditional for recruiter and admin
           <Button
             onClick={() => navigate(`/companycreate`)}
@@ -57,7 +60,7 @@ function CompanyProfileUser() {
             Create New
           </Button>
         )}
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={3}>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={3} pb={200} pt={10}>
           {companyProfiles.length > 0 ? (
             companyProfiles.map((profile) => (
               <Box
