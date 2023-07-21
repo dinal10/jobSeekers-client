@@ -300,7 +300,7 @@ export default function Home() {
                 />
                 <div>
                   <h3 className="text-xl font-bold text-white">
-                    {jobCard.CompanyProfile.name}
+                    {jobCard.CompanyProfile?.name}
                   </h3>
                   <span className="text-xs text-white">{jobCard.location}</span>
                 </div>
