@@ -74,7 +74,6 @@ export default function TableExperience({experience, fetchProfile}) {
         )
         fetchProfile()
       }
-      
     })
     
   }
