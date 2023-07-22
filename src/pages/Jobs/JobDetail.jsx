@@ -1,14 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchJobDetail } from "../../fetching/jobDetail"
+import { fetchJobDetail } from "../../fetching/jobDetail";
 
 export default function JobDetail() {
   const { id } = useParams();
   const [jobDetail, setJobDetail] = useState({});
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,8 +32,8 @@ export default function JobDetail() {
   };
 
   const handleCompanyDetail = () => {
-    navigate(`/companydetail/${id}`)
-  }
+    navigate(`/companydetail/${id}`);
+  };
 
   return (
     <div className="flex justify-center pb-60">
@@ -44,7 +43,7 @@ export default function JobDetail() {
           <div className="mt-[40px]">
             <h2 className="font-normal">{jobDetail.CompanyProfile?.name}</h2>
 
-            <h1 className="text-4xl font-semibold">{jobDetail.title}</h1>
+            <h1 className="text-6xl font-semibold">{jobDetail.title}</h1>
             {/* Header End */}
           </div>
 
@@ -103,10 +102,9 @@ export default function JobDetail() {
           </div>
           {/* Description End */}
 
-        {/* Requirement Card */}
-        <h2 className="mb-0 mt-10 font-semibold">Job Requirements</h2>
-        <div className=" p-3">
-            
+          {/* Requirement Card */}
+          <h2 className="mb-0 mt-10 font-semibold">Job Requirements</h2>
+          <div className=" p-3 border-black border-2 rounded-md">
             <div className="grid grid-cols-4 gap-4">
               {jobDetail.Skills &&
                 jobDetail.Skills.map((skill) => (
