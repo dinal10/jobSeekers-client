@@ -19,7 +19,7 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const data = await jobListing();
-        setJobCard(data.slice(0, 6));
+        setJobCard(data.job_listing.slice(0, 6));
       } catch (error) {
         console.log(error);
       }

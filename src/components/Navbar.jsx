@@ -54,6 +54,18 @@ function Navbar() {
     onToggle();
   };
 
+  const handleJob = () => {
+    navigate("/post-job");
+  };
+
+  const handleAppli = () => {
+    if (["recruiter"].includes(user.role)) {
+      navigate("/all-applied-job");
+    } else {
+      navigate("/job-apply-user");
+    }
+  }
+
   return (
 
       <Box className="bg-mint">
@@ -106,7 +118,7 @@ function Navbar() {
                 My Profile
               </Button>
             )}
-            {["user"].includes(user.role) && ( // conditional for recruiter and admin */}
+          {isLoggedIn && (
            <Button
            variant="ghost"
            colorScheme="black"
@@ -115,12 +127,27 @@ function Navbar() {
            py={2}
            rounded="md"
            fontSize="md"
-           onClick={() => navigate("/job-apply-user")}
+           onClick={handleAppli}
          >
            Applications
           </Button>
+          )}
+          {isLoggedIn && ["recruiter"].includes(user.role) && ( // conditional for recruiter and admin */}
+          <Button
+          variant="ghost"
+          colorScheme="black"
+          fontWeight="regular"
+          px={4}
+          py={2}
+          rounded="md"
+          fontSize="md"
+          onClick={handleJob}
+        >
+          Create Job
+         </Button>
          )} 
           </Flex>
+          
           <Spacer />
           <Button
             bg="black"

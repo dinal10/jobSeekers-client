@@ -4,11 +4,13 @@ import { fetchAppliedById } from "../../../fetching/appliedJobById";
 import { updateStatus } from "../../../fetching/updateStatus";
 import { IconButton } from "@chakra-ui/react";
 import { FaFileLines } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom"
 import Swal from "sweetalert2";
 
 export default function AppliedJobByID() {
   const { id } = useParams();
   const [jobDetail, setJobDetail] = useState({});
+  const navigate = useNavigate();
   const [status, setStatus] = useState([]);
   const [success, setSuccess] = useState(false);
   console.log(status);
@@ -50,8 +52,12 @@ export default function AppliedJobByID() {
     }
   };
 
+  const handleCompanyDetail = () => {
+    navigate(`/companydetail/${id}`)
+  }
+
   return (
-    <div className="flex justify-center pb-60">
+    <div className="flex justify-center pb-60 bg-mint">
       <div className="min-w-[80%]">
         <div>
           <div className="flex justify-between">
@@ -181,13 +187,51 @@ export default function AppliedJobByID() {
             {jobDetail.JobListing?.CompanyProfile?.description}
           </h3>
           <button
-            // onClick={handleCompanyDetail}
+            onClick={handleCompanyDetail}
             className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl mt-[20px]"
           >
             Company Detail
           </button>
           {/* About Company End */}
         </div>
+        <h1 className="flex font-bold text-black text-[20px] mt-8">
+                Applicants
+        </h1>
+        <div className="mt-[10px] mr-[10px]">
+              {/* user Side */}
+              <div className="flex gap-2 mt-5 text-[20px] font-regular">
+                <h1>{jobDetail.User?.first_name}</h1>
+                <h1>{jobDetail.User?.last_name}</h1>
+              </div>
+              <a href={jobDetail.resume}>
+                <IconButton
+                  boxSize={20}
+                  fontSize={30}
+                  icon={<FaFileLines />}
+                ></IconButton>
+              </a>
+              <div className="mt-5">{jobDetail.resume}</div>
+
+              <select
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+                className="p-2 border border-gray-300 rounded-md placeholder-font-light placeholder-text-gray-500 mr-4"
+              >
+                <option value="" disabled defaultValue>
+                  Choose your role
+                </option>
+                <option value="onreview">onreview</option>
+                <option value="accepted">accepted</option>
+                <option value="rejected">rejected</option>
+              </select>
+
+              <button
+                onClick={handleSubmit}
+                className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl mt-[20px]"
+              >
+                Confirm
+              </button>
+            </div>
       </div>
     </div>
   );

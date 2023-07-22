@@ -10,6 +10,7 @@ import JobCard from "../../components/JobCard";
 import { MultiSelect } from "react-multi-select-component"; // multiple select
 import Select from "react-select"; // single select
 import { Box, Spinner } from "@chakra-ui/react";
+import Loading from "../../components/Loading";
 
 let locations = [];
 let typeOptions = [];
@@ -157,11 +158,7 @@ function JobListing() {
   };
 
   if (isLoading) {
-    return (
-      <Box h="100vh" display="flex" alignItems="center" justifyContent="center">
-        <Spinner size="4xl" color="black" />
-      </Box>
-    );
+    return <Loading />;
   }
 
   const InitPagination = () => {
@@ -344,7 +341,7 @@ function JobListing() {
         </div>
       )}
 
-      <div className="mx-auto grid grid-cols-3 gap-5 py-10 container place-items-end px-20">
+      <div className="flex mx-[2px] grid grid-cols-4 gap-2 py-10 place-items-end px-20">
         {jobList.job_listing.map((job) => (
           <JobCard key={job.id} job={job} className="job-card" />
         ))}

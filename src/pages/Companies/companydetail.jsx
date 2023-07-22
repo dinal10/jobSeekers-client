@@ -121,7 +121,7 @@ export default function CompanyDetail() {
               </Text>
             </Box>
 
-            <Box maxW="100%" p={2} ml="520" h="400px" pos="absolute">
+            <Box maxW="100%" p={2} ml="520" h="400px" w="220px" pos="absolute">
               <Card>
                 <CardHeader>
                   <Heading as="h3" size="md" color="black">

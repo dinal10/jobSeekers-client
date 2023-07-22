@@ -154,9 +154,8 @@ export default function Register() {
               <option disabled value="" selected>
               Choose your role
               </option>
-              <option value="user">I am an applicant</option>
-              <option value="recruiter">I am a recruiter</option>
-              <option value="admin">I am an admin</option>
+              <option value="user">I'm a Job Seeker</option>
+              <option value="recruiter">I'm a Recruiter</option>
             </select>
           </div>
 
