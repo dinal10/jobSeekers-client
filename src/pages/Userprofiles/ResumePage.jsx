@@ -1,4 +1,4 @@
-import { useState, useEffect, React, useRef } from "react";
+import { useState, useEffect, React, useRef  } from "react";
 import { getUserProfileById, addUserProfile } from "../../fetching/userProfile";
 import { useStore } from "../../modules/store";
 import TableResume from "../../components/TableResume";
@@ -27,6 +27,7 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import Swal from "sweetalert2";
+import Loading from "../../components/Loading";
 
 export default function ResumePage() {
   const [profile, setProfile] = useState({});
@@ -40,16 +41,17 @@ export default function ResumePage() {
   async function fetchProfile() {
     const dataProfile = await getUserProfileById(loggedUser.id);
     setProfile(dataProfile);
+    setLoading(false);
   }
 
   useEffect(() => {
+    setLoading(true);
     fetchProfile();
-    setLoading(false);
   }, []); // 1x render
 
   if (isLoading) {
     return (
-      <span className="loading loading-infinity loading-lg flex mx-auto"></span>
+      <Loading />
     );
   }
 
@@ -74,7 +76,6 @@ export default function ResumePage() {
       });
     } else {
       const data = await addUserProfile(formData);
-
       console.log(data);
       Swal.fire({
         icon: "success",
@@ -93,9 +94,10 @@ export default function ResumePage() {
       if (!aboutMeRef.current.value || salaryRef.current.value) {
         HandleResumeAdd();
       } else {
-        HandleResumeAdd();
-        onClose();
+        HandleResumeAdd()
+        onClose()
       }
+
     };
     return (
       <>
@@ -140,6 +142,12 @@ export default function ResumePage() {
     );
   }
 
+  const ResumeRender = () => {
+    if (profile) {
+      return <TableResume profile={profile} />
+    }
+  }
+
   return (
     <>
       <div className="flex flex-row-reverse pr-20 pt-5 bg-mint">
@@ -148,7 +156,7 @@ export default function ResumePage() {
       <Flex bg="mint" shadow="md" pb={100}>
         <SideButton />
         <VStack flex="1" pl={5}>
-          <TableResume profile={profile} />
+          <ResumeRender></ResumeRender>
         </VStack>
       </Flex>
     </>

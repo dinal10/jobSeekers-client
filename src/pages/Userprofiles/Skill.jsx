@@ -21,6 +21,7 @@ import { useStore } from "../../modules/store";
 import TableSkill from "../../components/TableSkill";
 import SideButton from "../../components/SideButton";
 import Swal from "sweetalert2";
+import Loading from "../../components/Loading";
 
 export default function SkillPage() {
   const [userSkill, setUserSkill] = useState([]);
@@ -32,16 +33,17 @@ export default function SkillPage() {
   async function fetchProfile() {
     const dataUserSkills = await getSkills(loggedUser.id);
     setUserSkill(dataUserSkills);
+    setLoading(false);
   }
 
   useEffect(() => {
+    setLoading(true);
     fetchProfile();
-    setLoading(false);
   }, []); // 1x render
 
   if (isLoading) {
     return (
-      <span className="loading loading-infinity loading-lg flex mx-auto"></span>
+      <Loading />
     );
   }
 

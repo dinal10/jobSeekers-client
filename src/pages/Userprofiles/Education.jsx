@@ -21,6 +21,7 @@ import { useStore } from "../../modules/store";
 import TableEducation from "../../components/TableEducation";
 import SideButton from "../../components/SideButton";
 import Swal from "sweetalert2";
+import Loading from "../../components/Loading";
 
 export default function EducationPage() {
   const [education, setEducation] = useState([]);
@@ -35,16 +36,17 @@ export default function EducationPage() {
   async function fetchProfile() {
     const dataProfile = await getEducation(loggedUser.id);
     setEducation(dataProfile);
+    setLoading(false);
   }
 
   useEffect(() => {
+    setLoading(true);
     fetchProfile();
-    setLoading(false);
   }, []); // 1x render
 
   if (isLoading) {
     return (
-      <span className="loading loading-infinity loading-lg flex mx-auto"></span>
+      <Loading />
     );
   }
 

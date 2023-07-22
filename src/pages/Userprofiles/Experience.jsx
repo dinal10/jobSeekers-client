@@ -27,6 +27,7 @@ import { useStore } from "../../modules/store";
 import TableExperience from "../../components/TableExperience";
 import SideButton from "../../components/SideButton";
 import Swal from "sweetalert2";
+import Loading from "../../components/Loading";
 
 export default function ExperiencePage() {
   const [experience, setExperience] = useState([]);
@@ -44,16 +45,17 @@ export default function ExperiencePage() {
   async function fetchProfile() {
     const dataProfile = await getExperience(loggedUser.id);
     setExperience(dataProfile);
+    setLoading(false);
   }
 
   useEffect(() => {
+    setLoading(true);
     fetchProfile();
-    setLoading(false);
   }, []); // 1x render
 
   if (isLoading) {
     return (
-      <span className="loading loading-infinity loading-lg flex mx-auto"></span>
+      <Loading />
     );
   }
 
