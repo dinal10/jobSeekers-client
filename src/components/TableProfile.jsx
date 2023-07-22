@@ -45,12 +45,12 @@ import {
 
     return (
         <Box className="pr-20 pt-5 pb-20 w-full">
-            <TableContainer className="border-2 border-solid" alt="basic info">
-              <Table size='sm'>
+            <TableContainer className="border-2 border-solid rounded-xl bg-white shadow-xl" alt="basic info">
+              <Table size='sm' my={5}>
                 <TableCaption>
                   <Button variant="solid" onClick={handleBasicInfo}>Save</Button>
                 </TableCaption>
-                <Thead>
+                <Thead >
                   <Tr>
                     <Th fontSize="xl">Basic Information</Th>
                     <Th></Th>

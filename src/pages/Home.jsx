@@ -5,6 +5,9 @@ import image from "../assets/landingpage.jpg"
 
 export default function Home() {
   const [jobCard, setJobCard] = useState([]);
+  const handleDetail = (id) => {
+    navigate(`/job/${id}`);
+  };
 
   const navigate = useNavigate();
 
@@ -28,14 +31,14 @@ export default function Home() {
   return (
     <section>
       {/* Heading */}
-      <div className="background-home bg-[#001C30] bg-opacity-25 max-w-screen px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 w-full h-[40%] shadow-md flex justify-center items-center flex-row">
-        <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:items-center lg:gap-x-16 min-h-[500px]">
-          <div className="landing-text mx-auto max-w-2lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
-            <h2 className="text-3xl font-bold sm:text-7xl text-[#001C30]">
+      <div className="flex background-home px-4 py-10 w-full h-80% shadow-md justify-center items-center flex-row"></div>
+        <div className="flex lg:items-center lg:gap-x-16 px-40 h-[650px] landing-content">
+          <div className="landing-content max-w-2lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
+            <h2 className="text-3xl font-bold sm:text-7xl text-black">
               Find your career path
             </h2>
 
-            <p className="mt-4 text-gray-600">
+            <p className="mt-4 font-regular text-black">
               Initiate your journey towards your dream job by uncovering your
               talents through BakatLacak. Exceptional companies, esteemed and
               well-established, actively seek your presence, offering an
@@ -210,16 +213,15 @@ export default function Home() {
             </a>
           </div> */}
         </div>
-      </div>
       {/* Heading End */}
 
       {/* Flow */}
-      <div className="min-h-screen w-full flex flex-col justify-center items-center py-10 bg-black">
-        <h1 className="text-3xl font-bold sm:text-4xl text-white mb-[50px]">
-          How exactly you apply for the job
+      <div className="min-h-screen w-full flex flex-col justify-center items-center py-10 bg-mint">
+        <h1 className="text-3xl font-bold sm:text-4xl text-black mb-[50px]">
+          How exactly you apply for a job
         </h1>
         <div className="flex gap-10 flex-col lg:flex-row">
-          <div className="flex flex-col p-5 justify-center items-center rounded-md border border-[#176B87]  shadow-md hover:border-[#001C30] hover:ring-1 hover:ring-blue-200 focus:outline-none focus:ring hover:shadow-[#001c3094] bg-white ">
+          <div className="flex flex-col p-5 justify-center items-center job-card rounded-md border border-[#176B87]  shadow-md hover:border-[#001C30] hover:ring-1 hover:ring-blue-200 focus:outline-none focus:ring hover:shadow-[#001c3094] bg-white ">
             <svg
               className="h-[100px] w-[100px]"
               xmlns="http://www.w3.org/2000/svg"
@@ -233,7 +235,7 @@ export default function Home() {
             <h2 className="font-bold py-2 text-2xl ">1. Drop Your CV</h2>
           </div>
 
-          <div className="flex flex-col p-5 justify-center items-center rounded-md border border-[#176B87]  shadow-md hover:border-[#001C30] hover:ring-1 hover:ring-blue-200 focus:outline-none focus:ring hover:shadow-[#001c3094] bg-white ">
+          <div className="flex flex-col p-5 justify-center items-center rounded-md job-card border border-[#176B87]  shadow-md hover:border-[#001C30] hover:ring-1 hover:ring-blue-200 focus:outline-none focus:ring hover:shadow-[#001c3094] bg-white ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -254,7 +256,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="flex flex-col p-5 justify-center items-center rounded-md border border-[#176B87]  shadow-md hover:border-[#001C30] hover:ring-1 hover:ring-blue-200 focus:outline-none focus:ring hover:shadow-[#001c3094] bg-white ">
+          <div className="flex flex-col p-5 justify-center items-center rounded-md job-card border border-[#176B87]  shadow-md hover:border-[#001C30] hover:ring-1 hover:ring-blue-200 focus:outline-none focus:ring hover:shadow-[#001c3094] bg-white ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -275,8 +277,9 @@ export default function Home() {
         </div>
         <div className="flex justify-center">
         <button
+          
           onClick={() => handleButton("/job")}
-          className="mt-20 inline-block uppercase rounded-full bg-white px-8 py-4 text-xl text-black transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
+          className="mt-20 uppercase rounded-full bg-black px-8 py-4 text-xl text-white transition hover:bg-white hover:text-black focus:outline-none focus:ring focus:ring-yellow-400"
         >
           find your next job
         </button>
@@ -289,41 +292,48 @@ export default function Home() {
       <h1 className="bg-mint flex justify-center text-3xl font-bold sm:text-4xl text-black pt-10 pb-4">
           Available Jobs
       </h1>
-      <div className="bg-mint pb-20 pt-10 flex flex-wrap flex-row justify-center shadow-md">
+      <div className="bg-gradient-to-b from-mint to-black  pb-20 pt-10 flex flex-wrap flex-row justify-center shadow-md">
         
         {jobCard.map((jobCard) => (
           <div
-            className="w-[30%] h-[60%] my-4 flex flex-col items-center job-card"
-            key={jobCard.id}
+            className="flex w-[30%] max-h-60% my-4 gap-x-1 justify-center job-card"
+            key={jobCard.id} 
           >
-            <div className="w-[90%] group bg-black p-4 rounded-xl">
+            <div className="w-[90%] group bg-white p-4 rounded-xl">
               <div className="flex items-center gap-x-2">
                 <img
                   className="aspect-[2/2] w-16"
                   src="https://idn-static-assets.s3-ap-southeast-1.amazonaws.com/school/10284.png"
                 />
                 <div>
-                  <h3 className="text-xl font-bold text-white">
+                  <h3 className="text-xl font-bold text-black">
                     {jobCard.CompanyProfile?.name}
                   </h3>
-                  <span className="text-xs text-white">{jobCard.location}</span>
+                  <span className="text-xs text-black">{jobCard.location}</span>
                 </div>
               </div>
               <div className="my-4">
-                <h3 className="text-2xl font-medium text-white">
+                <h3 className="text-2xl font-medium text-black">
                   {jobCard.title}
                 </h3>
 
-                <div className="mt-2 text-sm text-white">
+                <div className="mt-2 text-sm text-black">
                   {jobCard.salary_start} - {jobCard.salary_end}
                 </div>
               </div>
+              <button
+            onClick={() => handleDetail(jobCard.id)}
+            type="button"
+            className="mt-[20] font-medium bg-black text-white w-[30%] rounded-xl"
+          >
+            Detail
+          </button>
             </div>
           </div>
         ))}
         <button
           onClick={() => handleButton("/job")}
-          className="outline mt-10 inline-block uppercase rounded-full bg-black px-8 py-4 text-xl text-white border-solid-white transition hover:bg-white hover:text-black hover:outline-black"
+          className="mt-10 uppercase rounded-full bg-white px-8 py-4 text-xl text-black transition hover:bg-black hover:text-white"
         >
           more jobs
         </button>

@@ -5,42 +5,42 @@ import { Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 export default function SideButton() { 
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
 
     return (
         <Box width="20%" className="pl-20 pt-5" alt="side button"> 
             <Card>
-              <CardBody className="bg-mint rounded">
+              <CardBody className="bg-white rounded-xl shadow-xl">
                 <Stack divider={<StackDivider />} spacing="1">
-                  <Button variant="ghost" onClick={() => navigate(`/profile`)}>
+                  <Button variant="ghost" onClick={() => navigate(`/profile`)} className="job-card">
                     <Box>
                       <Heading size="xs" textTransform="uppercase">
                         Basic Info
                       </Heading>
                     </Box>
                   </Button>
-                  <Button variant="ghost" onClick={() => navigate(`/resume`)}>
+                  <Button variant="ghost" onClick={() => navigate(`/resume`)} className="job-card">
                     <Box>
                       <Heading size="xs" textTransform="uppercase">
                         Resume
                       </Heading>
                     </Box>
                   </Button>
-                  <Button variant="ghost" onClick={() => navigate(`/education`)} >
+                  <Button variant="ghost" onClick={() => navigate(`/education`)} className="job-card" >
                     <Box>
                       <Heading size="xs" textTransform="uppercase">
                         Educations
                       </Heading>
                     </Box>
                   </Button>
-                  <Button variant="ghost" onClick={() => navigate(`/experience`)}>
+                  <Button variant="ghost" onClick={() => navigate(`/experience`)} className="job-card">
                     <Box>
                       <Heading size="xs" textTransform="uppercase">
                         Experiences
                       </Heading>
                     </Box>
                   </Button>
-                  <Button variant="ghost" onClick={() => navigate(`/skill`)}>
+                  <Button variant="ghost" onClick={() => navigate(`/skill`)} className="job-card">
                     <Box>
                       <Heading size="xs" textTransform="uppercase">
                         Skill

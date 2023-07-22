@@ -8,32 +8,32 @@ export default function JobCard({ job }) {
   };
 
   return (
-    <div className="w-full h-full max-w-xs shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
-      <div className="h-full group bg-black p-4 rounded-xl job-card">
-        <div className="flex h-[40%] items-center gap-x-2">
+    <div className="w-full h-full py-1 px-1 rounded-xl">
+      <div className="h-full group bg-white pb-4 pr-4 pt-1 pl-4 shadow-xl rounded-xl job-card">
+        <div className="flex h-[100px] items-center gap-x-1">
           <img
             className="aspect-[2/2] w-16"
             src="https://idn-static-assets.s3-ap-southeast-1.amazonaws.com/school/10284.png"
             alt="Company Logo"
           />
           <div>
-            <h3 className="text-md font-bold text-white">
-              {job.CompanyProfile?.name}
+            <h3 className="text-sm font-bold text-black">
+              {job.CompanyProfile.name}
             </h3>
-            <span className="text-xs text-white">{job.location}</span>
+            <span className="text-sm text-black">{job.location}</span>
           </div>
         </div>
-        <div className="my-4">
-          <h3 className="text-lg font-medium text-white">{job.title}</h3>
-          <div className="mt-2 text-sm text-white">
-            {job.salary_start} - {job.salary_end}
+        <div className="py-1">
+          <h3 className="text-lg font-medium text-black">{job.title}</h3>
+          <div className="my-1 text-sm text-black">
+            Rp {job.salary_start} - {job.salary_end}
           </div>
         </div>
         <div className="flex items-center justify-between">
           <button
             onClick={() => handleDetail(job.id)}
             type="button"
-            className="font-medium bg-white text-black w-full rounded-xl transition-all duration-300 group-hover:text-blue-500/80"
+            className="font-medium bg-black text-white w-[30%] rounded-xl transition-all duration-300 group-hover:text-blue-500/80"
           >
             Detail
           </button>

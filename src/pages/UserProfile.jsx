@@ -5,8 +5,8 @@ import {
 } from "../fetching/userProfile";
 import { useStore } from "../modules/store";
 import TableProfile from "../components/TableProfile";
-import { Flex, VStack } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { Flex, VStack, Box } from "@chakra-ui/react";
+import Loading from "../components/Loading";
 import SideButton from "../components/SideButton";
 
 export default function UserProfilePage() {
@@ -30,15 +30,15 @@ export default function UserProfilePage() {
 
   if (isLoading) {
     return (
-      <span className="loading loading-infinity loading-lg flex mx-auto"></span>
+      <Loading />
     );
   }
 
   return (
     <>
-      <Flex className="pt-10">
+      <Flex className="pt-10 bg-mint shadow-md justify-center">
         <SideButton />
-        <VStack flex="1">
+        <VStack pl={5} flex="1">
           <TableProfile user={user} profile={profile} />
         </VStack>
       </Flex>

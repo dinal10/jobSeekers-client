@@ -8,7 +8,6 @@ import {
   SimpleGrid,
   HStack,
   Button,
-  Spinner,
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 import { useStore } from "../../modules/store";
@@ -69,6 +68,7 @@ function CompanyProfileUser() {
                 bg="white"
                 p={4}
                 rounded="xl"
+                className="job-card"
               >
                 <Box mt={2}>
                   <Heading

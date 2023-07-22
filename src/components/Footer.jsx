@@ -4,7 +4,7 @@ class Footer extends Component {
   render() {
     return (
       <>
-        <footer className="relative pt-8 pb-6">
+        <footer className="relative pt-8 pb-6 bg-white">
           <div>
             <div className="flex flex-wrap text-left lg:text-left backgro">
               <div className="w-full lg:w-6/12 px-4">

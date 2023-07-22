@@ -18,8 +18,13 @@ import { FaFileLines } from "react-icons/fa6";
 export default function TableResume({ profile }) {
   return (
     <Box className="pr-20 pt-5 pb-20 w-full">
+<<<<<<< HEAD
+      <TableContainer className="border-2 border-solid rounded-xl bg-white shadow-xl" alt="basic info">
+        <Table size="sm" mt={5}>
+=======
       <TableContainer className="border-2 border-solid" alt="basic info">
         <Table size="sm">
+>>>>>>> 1297e5097a6e04e0f56d259d7224fbbebeacb169
           <TableCaption>
             <Button variant="solid">Save</Button>
           </TableCaption>

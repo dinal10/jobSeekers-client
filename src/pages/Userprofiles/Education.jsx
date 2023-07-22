@@ -173,10 +173,10 @@ export default function EducationPage() {
 
   return (
     <>
-      <div className="flex flex-row-reverse pr-20 pt-5">
+      <div className="flex flex-row-reverse pr-20 pt-5 bg-mint">
         <ButtonAddEducation></ButtonAddEducation>
       </div>
-      <Flex>
+      <Flex bg="mint" shadow="md" pb={100}>
         <SideButton />
         <VStack flex="1">
           {education.map((education, index) => {

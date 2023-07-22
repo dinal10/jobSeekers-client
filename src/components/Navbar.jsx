@@ -33,9 +33,9 @@ function Navbar() {
     Swal.fire({
       title: "Logging out..",
       timer: 1000,
-      showConfirmButton: false
+      showConfirmButton: false,
     });
-    navigate("/")
+    navigate("/");
   };
 
   const handleLogin = () => {
