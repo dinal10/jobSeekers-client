@@ -53,7 +53,7 @@ import {
                 <Thead >
                   <Tr>
                     <Th fontSize="xl">Basic Information</Th>
-                    <Th></Th>
+                    <Th>{user.role}</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
@@ -96,7 +96,7 @@ import {
                   <Tr>
                     <Td fontSize="lg" width="25%">Address</Td>
                     <Td>
-                      <Input tpye="text" defaultValue={user.address} onChange={(e) => setAddress(e.target.value)}/>
+                      <Input type="text" defaultValue={user.address} onChange={(e) => setAddress(e.target.value)}/>
                     </Td>
                   </Tr>
                 </Tbody>
