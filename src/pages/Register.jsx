@@ -49,7 +49,7 @@ export default function Register() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black">
+    <div className="flex items-center justify-center min-h-screen bg-black py-10">
       <div className="flex flex-col md:flex-row bg-white w-[70%] h-[800px]">
         {/* Left side - Card Container */}
         <div className="flex flex-col w-[50%] h-[50%] p-8">

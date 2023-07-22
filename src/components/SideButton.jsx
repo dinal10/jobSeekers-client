@@ -10,7 +10,7 @@ export default function SideButton() {
     return (
         <Box width="20%" className="pl-20 pt-5" alt="side button"> 
             <Card>
-              <CardBody className="bg-mint bg-opacity-30">
+              <CardBody className="bg-mint rounded">
                 <Stack divider={<StackDivider />} spacing="1">
                   <Button variant="ghost" onClick={() => navigate(`/profile`)}>
                     <Box>

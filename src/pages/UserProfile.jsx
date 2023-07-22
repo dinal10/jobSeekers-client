@@ -36,7 +36,7 @@ export default function UserProfilePage() {
 
   return (
     <>
-      <Flex>
+      <Flex className="pt-10">
         <SideButton />
         <VStack flex="1">
           <TableProfile user={user} profile={profile} />

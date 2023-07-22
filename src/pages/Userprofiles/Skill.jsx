@@ -129,7 +129,7 @@ export default function SkillPage() {
 
   return (
     <>
-      <div className="flex flex-row-reverse pr-20">
+      <div className="flex flex-row-reverse pr-20 pt-5">
         <ButtonAddSkill></ButtonAddSkill>
       </div>
       <Flex>

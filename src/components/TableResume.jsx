@@ -10,6 +10,7 @@ import {
   Td,
   Box,
   Input,
+  Textarea
 } from "@chakra-ui/react";
 import { IconButton } from '@chakra-ui/react'
 import { FaFileLines } from "react-icons/fa6"
@@ -32,7 +33,7 @@ export default function TableResume({ profile }) {
             <Tr>
               <Td fontSize="lg" width="25%">About Me</Td>
               <Td>
-                <Input type="text" defaultValue={profile.about_me} />
+                <Textarea type="text" defaultValue={profile.about_me} />
               </Td>
             </Tr>
             <Tr>

@@ -12,7 +12,8 @@ import {
     Th,
     Td,
     Box,
-    Input
+    Input,
+    Textarea
   } from "@chakra-ui/react";
 
 export default function TableExperience({experience, fetchProfile}) {
@@ -112,7 +113,7 @@ export default function TableExperience({experience, fetchProfile}) {
                 </Tr>
                 <Tr>
                   <Td fontSize="lg" width="25%">Description</Td>
-                  <Td><Input type="text" defaultValue={experience.description} onChange={(e) => setDescription(e.target.value)}/></Td>
+                  <Td><Textarea type="text" defaultValue={experience.description} onChange={(e) => setDescription(e.target.value)}/></Td>
                 </Tr>
                 <Tr>
                   <Td fontSize="lg" width="25%">Salary</Td>

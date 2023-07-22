@@ -31,7 +31,7 @@ export default function ResumePage() {
 
     return (
         <>
-        <Flex>
+        <Flex className="pt-10">
         <SideButton />
           <VStack flex="1">
               <TableResume profile={profile} />

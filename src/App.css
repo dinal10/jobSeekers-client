@@ -1,7 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
 
-
 .font-outfit {
   font-family: 'Outfit', sans-serif;
 }
@@ -28,6 +27,12 @@ body {
   z-index: 1500;
 }
 
+.background-home {
+  background-image: url(assets/landingpage.jpg);
+  background-size: contain;
+  filter: blur(2px);
+  z-index: 100;
+}
   
 .spinner-style {
   width: 250px;
