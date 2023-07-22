@@ -3,11 +3,14 @@ import { postJob } from "../../../fetching/postJob";
 import { findTypes } from "../../../fetching/type";
 import { findSkills } from "../../../fetching/skills";
 import { MultiSelect } from "react-multi-select-component";
+import Swal from "sweetalert2";
+import Loading from "../../../components/Loading";
 
 let typeOptions = [];
 let skillOptions = [];
 
 export default function PostJob() {
+  const [error, setError] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
@@ -18,17 +21,7 @@ export default function PostJob() {
   const [filterSkill, setFilterSkill] = useState([]);
   const [typeAttributes, setTypeAttributes] = useState([]);
   const [filterTypes, setFilterTypes] = useState([]);
-
-  console.log(title);
-  console.log(description);
-  console.log(location);
-  console.log(salaryStart);
-  console.log(salaryEnd);
-  console.log(limitDate);
-  //   console.log(skillAttributes);
-  console.log(filterSkill);
-  //   console.log(typeAttributes);
-  console.log(filterTypes);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,15 +30,13 @@ export default function PostJob() {
         const dataSkills = await findSkills();
         setTypeAttributes(dataTypes);
         setSkillAttributes(dataSkills);
-        typeOptions.push(
-          ...dataTypes.map((t) => ({ value: t.id, label: t.title }))
-        );
-        skillOptions.push(
-          ...dataSkills.map((s) => ({
-            value: s.id,
-            label: `${s.name} ${s.level}`,
-          }))
-        );
+        typeOptions = dataTypes.map((t) => ({ value: t.id, label: t.title }));
+        skillOptions = dataSkills.map((s) => ({
+          value: s.id,
+          label: `${s.name} ${s.level}`,
+        }));
+
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching jobList:", error);
       }
@@ -53,21 +44,20 @@ export default function PostJob() {
     fetchData();
   }, []);
 
-  //   const handleSkillChange = (event, index) => {
-  //     const newSkillAttributes = [...skillAttributes];
-  //     newSkillAttributes[index] = { id: event.target.value };
-  //     setSkillAttributes(newSkillAttributes);
-  //   };
-
-  //   const handleTypeChange = (event, index) => {
-  //     const newTypeAttributes = [...typeAttributes];
-  //     newTypeAttributes[index] = { id: event.target.value };
-  //     setTypeAttributes(newTypeAttributes);
-  //   };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
+      const skill_attributes = filterSkill.map((skill) => {
+        return {
+          id: skill.value,
+        };
+      });
+      const type_attributes = filterSkill.map((type) => {
+        return {
+          id: type.value,
+        };
+      });
       const response = await postJob({
         title,
         description,
@@ -75,8 +65,8 @@ export default function PostJob() {
         salary_start: salaryStart,
         salary_end: salaryEnd,
         limit_date: limitDate,
-        skill_attributes: skillAttributes,
-        type_attributes: typeAttributes,
+        skill_attributes,
+        type_attributes,
       });
       console.log(response.data);
 
@@ -90,7 +80,23 @@ export default function PostJob() {
       setLimitDate("");
       setSkillAttributes([]);
       setTypeAttributes([]);
+      Swal.fire({
+        icon: "success",
+        title: "Job Created",
+        timer: 3000,
+        timerProgressBar: false,
+        onClose: () => {
+          setSuccess(false);
+        },
+      });
     } catch (error) {
+      setError(error.message);
+      setIsLoading(false);
+      Swal.fire({
+        icon: "error",
+        title: "Submission failed!",
+        text: error.message,
+      });
       console.error("Error creating job listing:", error);
     }
   };
