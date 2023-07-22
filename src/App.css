@@ -23,10 +23,6 @@ body {
   transform: scale(1.1);
 }
 
-.swal2-container {
-  z-index: 1500;
-}
-
 .background-home {
   background-image: url(assets/landingpage.jpg);
   background-size: contain;
@@ -52,7 +48,7 @@ body {
 }
 
 .swal2-container {
-  z-index: 1500;
+  z-index: 20000;
 }
 
   
