@@ -18,7 +18,7 @@ export default function JobCard({ job }) {
           />
           <div>
             <h3 className="text-sm font-bold text-black">
-              {job.CompanyProfile.name}
+              {job.CompanyProfile?.name}
             </h3>
             <span className="text-sm text-black">{job.location}</span>
           </div>

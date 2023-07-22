@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { postJob } from "../fetching/postJob";
-import { findTypes } from "../fetching/type";
-import { findSkills } from "../fetching/skills";
+import { postJob } from "../../../fetching/postJob";
+import { findTypes } from "../../../fetching/type";
+import { findSkills } from "../../../fetching/skills";
 import { MultiSelect } from "react-multi-select-component";
 
 let typeOptions = [];
