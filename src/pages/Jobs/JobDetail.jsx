@@ -37,7 +37,7 @@ export default function JobDetail() {
 
   return (
     <div className="flex justify-center pb-60">
-      <div className="min-w-[80%]">
+      <div className="min-w-[1000px]">
         <div>
           {/* Header */}
           <div className="mt-[40px]">

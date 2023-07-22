@@ -166,7 +166,6 @@ function JobListing() {
 
   const InitPagination = () => {
     const pageNumbers = [];
-
     for (let i = 0; i < jobList.totalPages; i++) {
       pageNumbers.push(i + 1);
     }
