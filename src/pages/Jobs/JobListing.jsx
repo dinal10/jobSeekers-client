@@ -78,8 +78,8 @@ function JobListing() {
             label: `${s.name} ${s.level}`,
           };
         });
-
-        locations = data.job_listing.map((el) => el.location);
+        console.log(data,"<<<<<<<<<<<<<<<<<<<<<<<<")
+        locations = data.map((el) => el.location);
         locations = [...new Set(locations)];
         locations = locations.map((el) => {
           return {
@@ -348,7 +348,7 @@ function JobListing() {
 
 
       <div className="mx-[2px] grid grid-cols-4 gap-2 py-10 place-items-end px-20">
-        {jobList.job_listing.map((job) => (
+        {jobList.map((job) => (
           <JobCard key={job.id} job={job} className="job-card" />
         ))}
       </div>
