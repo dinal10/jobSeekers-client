@@ -20,8 +20,8 @@ export default function JobApplications() {
   }, []);
 
   return (
-    <div>
-      <h1 className="text-4xl text-center font-semibold text-black my-4">
+    <div className="bg-mint">
+      <h1 className="text-4xl text-center font-semibold text-black">
         Your Applications
       </h1>
       <div className="mx-auto grid grid-cols-3 gap-5 py-10 container place-items-end px-20">

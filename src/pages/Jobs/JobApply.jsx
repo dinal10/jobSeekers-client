@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
 import fetchJobApply from "../../fetching/jobApply";
-import Swal from "sweetalert2"; 
+import Swal from "sweetalert2";
 
 export default function JobApply() {
   const { id } = useParams();
@@ -38,10 +38,10 @@ export default function JobApply() {
       Swal.fire({
         icon: "success",
         title: "Application submitted successfully!",
-        timer: 3000, 
+        timer: 3000,
         timerProgressBar: false,
         onClose: () => {
-          setSuccess(false); 
+          setSuccess(false);
         },
       });
     } catch (error) {
@@ -61,13 +61,15 @@ export default function JobApply() {
   });
 
   return (
-    <div className="flex py-40 px-40 justify-center bg-gradient-to-r from-navy to-teal">
+    <div className="bg-mint flex py-40 px-40 justify-center bg-gradient-to-r from-navy to-teal">
       <div className="w-full max-w-md p-4 bg-white rounded-lg shadow-md">
         <h1 className="text-4xl font-semibold mb-4">Apply for Job</h1>
 
         {error && <div className="text-red-500 mb-4">{error}</div>}
         {success && (
-          <div className="text-green-500 mb-4">Application submitted successfully!</div>
+          <div className="text-green-500 mb-4">
+            Application submitted successfully!
+          </div>
         )}
 
         <form onSubmit={handleSubmit}>

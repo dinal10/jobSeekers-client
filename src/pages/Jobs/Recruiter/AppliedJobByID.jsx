@@ -4,11 +4,13 @@ import { fetchAppliedById } from "../../../fetching/appliedJobById";
 import { updateStatus } from "../../../fetching/updateStatus";
 import { IconButton } from "@chakra-ui/react";
 import { FaFileLines } from "react-icons/fa6";
+import Swal from "sweetalert2";
 
 export default function AppliedJobByID() {
   const { id } = useParams();
   const [jobDetail, setJobDetail] = useState({});
   const [status, setStatus] = useState([]);
+  const [success, setSuccess] = useState(false);
   console.log(status);
 
   useEffect(() => {
@@ -32,6 +34,16 @@ export default function AppliedJobByID() {
 
       const updatedData = await fetchAppliedById(id);
       setJobDetail(updatedData);
+      setSuccess(true);
+      Swal.fire({
+        icon: "success",
+        title: "Status Updated!",
+        timer: 3000,
+        timerProgressBar: false,
+        onClose: () => {
+          setSuccess(false);
+        },
+      });
       console.log("Status updated successfully!");
     } catch (error) {
       console.error("Error updating status:", error);
