@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
+import convertToRupiah from "../lib/converty";
 
 export default function JobCard({ job }) {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ export default function JobCard({ job }) {
         <div className="py-1">
           <h3 className="text-lg font-medium text-black">{job.title}</h3>
           <div className="my-1 text-sm text-black">
-            Rp {job.salary_start} - {job.salary_end}
+            {convertToRupiah(job.salary_start)} - {convertToRupiah(job.salary_end)}
           </div>
         </div>
         <div className="flex items-center justify-between">

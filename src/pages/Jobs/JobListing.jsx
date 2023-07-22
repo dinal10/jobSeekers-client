@@ -78,7 +78,6 @@ function JobListing() {
             label: `${s.name} ${s.level}`,
           };
         });
-        console.log(data,"<<<<<<<<<<<<<<<<<<<<<<<<")
         locations = data.map((el) => el.location);
         locations = [...new Set(locations)];
         locations = locations.map((el) => {
@@ -169,7 +168,6 @@ function JobListing() {
 
   const InitPagination = () => {
     const pageNumbers = [];
-
     for (let i = 0; i < jobList.totalPages; i++) {
       pageNumbers.push(i + 1);
     }
