@@ -53,7 +53,7 @@ export default function PostJob() {
           id: skill.value,
         };
       });
-      const type_attributes = filterSkill.map((type) => {
+      const type_attributes = filterTypes.map((type) => {
         return {
           id: type.value,
         };
@@ -91,7 +91,7 @@ export default function PostJob() {
       });
     } catch (error) {
       setError(error.message);
-      setIsLoading(false);
+      setLoading(false);
       Swal.fire({
         icon: "error",
         title: "Submission failed!",
