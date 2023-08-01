@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jobListing } from "../fetching/job_listing";
 import convertToRupiah from "../lib/converty";
+import { TypeAnimation } from 'react-type-animation';
+import TypeAnimate from "../components/TypeAnimation";
 
 export default function Home() {
   const [jobCard, setJobCard] = useState([]);
@@ -35,7 +37,7 @@ export default function Home() {
         <div className="flex lg:items-center lg:gap-x-16 px-40 h-[650px] landing-content">
           <div className="landing-content max-w-2lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
             <h2 className="text-3xl font-bold sm:text-7xl text-black">
-              Find your career path
+              Find your career path <br></br> <TypeAnimate/>
             </h2>
 
             <p className="mt-4 font-regular text-black">

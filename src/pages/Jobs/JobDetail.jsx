@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { fetchJobDetail } from "../../fetching/jobDetail";
 import { useStore } from "../../modules/store";
 import Loading from "../../components/Loading"
+import convertToRupiah from "../../lib/converty";
 
 export default function JobDetail() {
   const { id } = useParams();
@@ -94,7 +95,7 @@ export default function JobDetail() {
                   <div className="flex flex-col items-center">
                     <h3 className="text-md font-bold">Salary</h3>
                     <p>
-                      {jobDetail.salary_start} - {jobDetail.salary_end}
+                      {convertToRupiah(Number(jobDetail.salary_start))} - {convertToRupiah(Number(jobDetail.salary_end))}
                     </p>
                   </div>
               </div>

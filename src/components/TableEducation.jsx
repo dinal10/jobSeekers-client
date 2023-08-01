@@ -1,6 +1,7 @@
 import { deleteEducation, editEducation } from "../fetching/education";
 import { useState, React } from "react";
 import Swal from "sweetalert2";
+import LongDate from "../lib/convertolongdate";
 import {
     Button,
     TableContainer,
@@ -106,13 +107,13 @@ import {
                   <Tr>
                     <Td fontSize="lg" width="25%">Graduation Date</Td>
                     <Td>
-                    <Input type="text" defaultValue={education.graduation_date} onChange={(e) => setGraduationDate(e.target.value)} />
+                    <Input type="text" defaultValue={LongDate(education.graduation_date)} onChange={(e) => setGraduationDate(e.target.value)} />
                     </Td>
                   </Tr>
                   <Tr>
                     <Td fontSize="lg" width="25%">Start Date</Td>
                     <Td>
-                    <Input type="text" defaultValue={education.start_date} onChange={(e) => setStartDate(e.target.value)}/>
+                    <Input type="text" defaultValue={LongDate(education.start_date)} onChange={(e) => setStartDate(e.target.value)}/>
                     </Td>
                   </Tr>
                 </Tbody>

@@ -17,6 +17,8 @@ import {
 import { IconButton } from "@chakra-ui/react";
 import { FaFileLines } from "react-icons/fa6";
 import { editUserProfile } from "../fetching/userProfile";
+import convertToRupiah from "../lib/converty";
+
 
 export default function TableResume({ profile, fetchProfile }) {
 
@@ -71,7 +73,7 @@ export default function TableResume({ profile, fetchProfile }) {
                 Salary Expectation
               </Td>
               <Td>
-                <Input type="text" defaultValue={profile.salary_expectation} onChange={(e) => setSalary(e.target.value)} />
+                <Input type="text" defaultValue={convertToRupiah(Number(profile.salary_expectation))} onChange={(e) => setSalary(e.target.value)} />
               </Td>
             </Tr>
             <Tr>

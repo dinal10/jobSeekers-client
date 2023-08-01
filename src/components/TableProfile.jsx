@@ -1,6 +1,7 @@
 import { useState, React } from "react";
 import { editUser } from "../fetching/userProfile";
 import Swal from "sweetalert2";
+import LongDate from "../lib/convertolongdate";
 import {
     Button,
     TableContainer,
@@ -84,7 +85,7 @@ import {
                   <Tr>
                     <Td fontSize="lg" width="25%">Birth date</Td>
                     <Td>
-                      <Input type="text" defaultValue={user.birth_date} onChange={(e) => setBirthDate(e.target.value)}/>
+                      <Input type="text" defaultValue={LongDate(user.birth_date)} onChange={(e) => setBirthDate(e.target.value)}/>
                     </Td>
                   </Tr>
                   <Tr>

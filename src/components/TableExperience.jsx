@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { deleteExperience, editExperience } from "../fetching/experience";
 import Swal from "sweetalert2";
+import convertToRupiah from "../lib/converty";
+import LongDate from "../lib/convertolongdate";
 import {
     Button,
     TableContainer,
@@ -116,15 +118,15 @@ export default function TableExperience({experience, fetchProfile}) {
                 </Tr>
                 <Tr>
                   <Td fontSize="lg" width="25%">Salary</Td>
-                  <Td><Input type="text" defaultValue={experience.salary} onChange={(e) => setSalary(e.target.value)}/></Td>
+                  <Td><Input type="text" defaultValue={convertToRupiah(experience.salary)} onChange={(e) => setSalary(e.target.value)}/></Td>
                 </Tr>
                 <Tr>
                   <Td fontSize="lg" width="25%">End date</Td>
-                  <Td><Input type="text" defaultValue={experience.end_date} onChange={(e) => setEndDate(e.target.value)}/></Td>
+                  <Td><Input type="text" defaultValue={LongDate(experience.end_date)} onChange={(e) => setEndDate(e.target.value)}/></Td>
                 </Tr>
                 <Tr>
                   <Td fontSize="lg" width="25%">Start Date</Td>
-                  <Td><Input type="text" defaultValue={experience.start_date} onChange={(e) => setStartDate(e.target.value)}/></Td>
+                  <Td><Input type="text" defaultValue={LongDate(experience.start_date)} onChange={(e) => setStartDate(e.target.value)}/></Td>
                 </Tr>
               </Tbody>
             </Table>

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import convertToRupiah from "../lib/converty";
 
 export default function ApplyCard({ applications }) {
     return (
@@ -22,7 +23,7 @@ export default function ApplyCard({ applications }) {
               {applications.title}
             </h3>
             <div className="mt-2 text-sm text-black">
-              {applications.salary_start} - {applications.salary_end}
+              {convertToRupiah(applications.salary_start)} - {convertToRupiah(applications.salary_end)}
             </div>
           </div>
           <div className="flex items-center justify-between">

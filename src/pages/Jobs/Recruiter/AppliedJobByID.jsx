@@ -5,6 +5,7 @@ import { updateStatus } from "../../../fetching/updateStatus";
 import { IconButton } from "@chakra-ui/react";
 import { FaFileLines } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom"
+import convertToRupiah from "../../../lib/converty";
 import Swal from "sweetalert2";
 
 export default function AppliedJobByID() {
@@ -141,8 +142,8 @@ export default function AppliedJobByID() {
                 <div className="flex flex-col items-center">
                   <h3 className="text-md font-bold">Salary</h3>
                   <p>
-                    {jobDetail.JobListing?.salary_start} -{" "}
-                    {jobDetail.JobListing?.salary_end}
+                    {convertToRupiah(Number(jobDetail.JobListing?.salary_start))} -{" "}
+                    {convertToRupiah(Number(jobDetail.JobListing?.salary_end))}
                   </p>
                 </div>
               </div>
