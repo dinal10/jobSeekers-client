@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "https://portfoliojobsekeers-production.up.railway.app";
+const baseURL = "https://portfoliojobsekeers-production.up.railway.app/api";
 
 const instance = axios.create({
   baseURL: baseURL,
